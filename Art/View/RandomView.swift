@@ -15,33 +15,14 @@ struct RandomView: View {
                 Spacer()
                 if currentArt.count > 0 {
                     
-                    List(currentArt, id: \.id) { art in
+                    List(currentArt) { art in
                         VStack {
-                            Text(art.title)
-                            Text(art.date_display)
+                            SingleArtView(currentArt: art)
                         }
                         
                     }
-                    .task {
-                        currentArt = await NetworkService.fetch()
-                    }
-                   
-//                   HStack {
-//                        Text(currentArt.title)
-//                        Text(currentArt.date_display)
-//                    }
-//
-//                    VStack{
-//                        Text(currentArt.dimensions)
-//                        Text(currentArt.credit_line)
-//
-//                    }
-//                    .padding()
-                    
-//                    Text(currentArt.artist_display)
-//                    Text(currentArt.place_of_origin)
-//                    Text(currentArt.style_title)
                 }
+ 
                 else {
                     Text("No")
                 }
@@ -59,6 +40,9 @@ struct RandomView: View {
 //                    Text("Fetch another one")
 //                })
 //                .buttonStyle(.borderedProminent)
+            }
+            .task {
+                currentArt = await NetworkService.fetch()
             }
             .navigationTitle("Random Art")
         }

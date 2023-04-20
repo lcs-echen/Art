@@ -14,7 +14,6 @@
 		CA3C6C3C29F18B91003567B4 /* ArtDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C6C3B29F18B91003567B4 /* ArtDataModel.swift */; };
 		CA3C6C3F29F190B1003567B4 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C6C3E29F190B1003567B4 /* NetworkService.swift */; };
 		CA3C6C4229F19613003567B4 /* RandomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C6C4129F19613003567B4 /* RandomView.swift */; };
-		CA3C6C4829F1ADE9003567B4 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C6C4729F1ADE9003567B4 /* ImageView.swift */; };
 		CA3C6C4A29F1B1E0003567B4 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C6C4929F1B1DF003567B4 /* Result.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,7 +26,6 @@
 		CA3C6C3B29F18B91003567B4 /* ArtDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtDataModel.swift; sourceTree = "<group>"; };
 		CA3C6C3E29F190B1003567B4 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		CA3C6C4129F19613003567B4 /* RandomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomView.swift; sourceTree = "<group>"; };
-		CA3C6C4729F1ADE9003567B4 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		CA3C6C4929F1B1DF003567B4 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,7 +80,6 @@
 		CA3C6C3529F18A71003567B4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CA3C6C4729F1ADE9003567B4 /* ImageView.swift */,
 				CA3C6C3629F18A87003567B4 /* SingleArtView.swift */,
 				CA3C6C4129F19613003567B4 /* RandomView.swift */,
 			);
@@ -181,7 +178,6 @@
 				CA3C6C3729F18A87003567B4 /* SingleArtView.swift in Sources */,
 				CA3C6C3F29F190B1003567B4 /* NetworkService.swift in Sources */,
 				CA3C6C4A29F1B1E0003567B4 /* Result.swift in Sources */,
-				CA3C6C4829F1ADE9003567B4 /* ImageView.swift in Sources */,
 				CA3C6C3C29F18B91003567B4 /* ArtDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

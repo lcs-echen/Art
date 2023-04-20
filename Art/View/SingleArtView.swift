@@ -1,9 +1,9 @@
-//
+
 //  SingleArtView.swift
 //  Art
 //
 //  Created by Evelyn Chen on 2023-04-20.
-//
+
 
 import SwiftUI
 
@@ -14,26 +14,40 @@ struct SingleArtView: View {
             HStack {
                 Text(currentArt.title)
                     .font(.title)
-                Text(currentArt.date_display)
-            }
-            
-            
-            
-            VStack{
-                Text(currentArt.dimensions)
-                Text(currentArt.credit_line)
-                
+                Spacer()
+               Text(currentArt.date_display)
             }
             .padding()
-            Text(currentArt.artist_display)
-            Text(currentArt.place_of_origin)
-            Text(currentArt.style_title)
-            
+
+
+
+            VStack{
+                HStack{
+                    Text(currentArt.dimensions)
+                        .font(.caption)
+                    Spacer()
+                }
+                HStack{
+                    Text(currentArt.credit_line)
+                    Spacer()
+                }
+
+
+            }
+            .padding()
+            HStack{
+                VStack (alignment: .leading){
+                    Text(currentArt.artist_display)
+                    Text(currentArt.place_of_origin)
+                }
+                Spacer()
+            }
+            .padding()
         }
-        
-        
-        
-        
+
+
+
+
     }
 }
 

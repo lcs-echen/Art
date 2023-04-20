@@ -40,6 +40,8 @@ struct NetworkService {
             // Fetch the data
             let (data, _) = try await URLSession.shared.data(from: url)
             
+            print(String(data: data, encoding: .utf8)!)
+            
             // 3. Decode the data
             
             // Create a decoder object to do most of the work for us
@@ -66,7 +68,7 @@ struct NetworkService {
         
     }
     
-    static func fetchImage(resultFor image_id:String) async -> Image? {
+    static func fetchImage(resultFor image_id: String) async -> Image? {
         
         // 1. Attempt to create a URL from the address provided
         let endpoint = "https://www.artic.edu/iiif/2/\(image_id)/full/843,/0/default.jpg"
