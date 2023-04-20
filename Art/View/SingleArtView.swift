@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SingleArtView: View {
     @State var currentArt = artExample
+    @State var artworkImage: Image?
+    
     var body: some View {
         VStack{
             HStack {
@@ -19,7 +21,12 @@ struct SingleArtView: View {
             }
             .padding()
 
-
+            if let artworkImage = artworkImage {
+                artworkImage
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 400)
+            }
 
             VStack{
                 HStack{
@@ -27,12 +34,6 @@ struct SingleArtView: View {
                         .font(.caption)
                     Spacer()
                 }
-                HStack{
-                    Text(currentArt.credit_line)
-                    Spacer()
-                }
-
-
             }
             .padding()
             HStack{
@@ -43,6 +44,13 @@ struct SingleArtView: View {
                 Spacer()
             }
             .padding()
+
+           
+        }
+        .task {
+            if let imageId = currentArt.image_id {
+                artworkImage = await NetworkService.fetchImage(resultFor: imageId)
+            }
         }
 
 
