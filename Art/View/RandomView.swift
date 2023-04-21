@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RandomView: View {
-    @Binding var currentArt: ArtDataModel?
+    @State var currentArt: ArtDataModel?
     @State var artworkImage: Image?
     
     var body: some View {

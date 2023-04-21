@@ -15,7 +15,6 @@
 		CA3C6C3F29F190B1003567B4 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C6C3E29F190B1003567B4 /* NetworkService.swift */; };
 		CA3C6C4229F19613003567B4 /* RandomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C6C4129F19613003567B4 /* RandomView.swift */; };
 		CA3C6C4A29F1B1E0003567B4 /* Art.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C6C4929F1B1DF003567B4 /* Art.swift */; };
-		CA3C6C4C29F22339003567B4 /* db.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CA3C6C4B29F22339003567B4 /* db.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +27,6 @@
 		CA3C6C3E29F190B1003567B4 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		CA3C6C4129F19613003567B4 /* RandomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomView.swift; sourceTree = "<group>"; };
 		CA3C6C4929F1B1DF003567B4 /* Art.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Art.swift; sourceTree = "<group>"; };
-		CA3C6C4B29F22339003567B4 /* db.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = db.sqlite; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +91,6 @@
 			children = (
 				CA3C6C3B29F18B91003567B4 /* ArtDataModel.swift */,
 				CA3C6C4929F1B1DF003567B4 /* Art.swift */,
-				CA3C6C4B29F22339003567B4 /* db.sqlite */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -165,7 +162,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA3C6C2F29F18007003567B4 /* Preview Assets.xcassets in Resources */,
-				CA3C6C4C29F22339003567B4 /* db.sqlite in Resources */,
 				CA3C6C2C29F18007003567B4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

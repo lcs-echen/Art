@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SingleArtView: View {
-    @Binding var currentArt: ArtDataModel
+    var currentArt: ArtDataModel
     @State var artworkImage: Image?
     
     var body: some View {
@@ -61,6 +61,6 @@ struct SingleArtView: View {
 
 struct SingleArtView_Previews: PreviewProvider {
     static var previews: some View {
-        SingleArtView()
+        SingleArtView(currentArt: artExample)
     }
 }
