@@ -38,7 +38,10 @@ struct SingleArtView: View {
             .padding()
             HStack{
                 VStack (alignment: .leading){
+                    Text("Artist Information:")
                     Text(currentArt.artist_display)
+                        .padding(.bottom)
+                    Text("Place of Origin: ")
                     Text(currentArt.place_of_origin)
                 }
                 Spacer()

@@ -53,7 +53,7 @@ struct NetworkService {
             // If we got here, decoding succeeded, return the instance of our data type
 
             if decodedData.data.count > 0 {
-                return decodedData.data.first!
+                return decodedData.data.randomElement()
             } else {
                 return nil
             }

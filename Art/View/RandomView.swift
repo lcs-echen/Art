@@ -22,31 +22,28 @@ struct RandomView: View {
                 }
                 
                 Spacer()
+                Button(action: {
+                    Task {
+                        withAnimation {
+                            currentArt = nil
+                        }
+                        currentArt = await NetworkService.fetch()
+                    }
+                }, label: {
+                    Text("Fetch another one")
+                })
+                .buttonStyle(.borderedProminent)
+                .tint(.blue)
             }
+            .task {
+                    currentArt = await NetworkService.fetch()
+            }
+            .navigationTitle("Random Art")
 
             
-           
-            
-            Button(action: {
-                Task {
-                    withAnimation {
-                        currentArt = nil
-                    }
-                    currentArt = await NetworkService.fetch()
-                }
-            }, label: {
-                Text("Fetch another one")
-            })
-            .buttonStyle(.borderedProminent)
-            .tint(.green)
-            
-            
         }
-        .task {
-            currentArt = await NetworkService.fetch()
-            
-        }
-        .navigationTitle("Random Art")
+        
+        
     }
     
 }
