@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SingleArtView: View {
-    @State var currentArt = artExample
+    @Binding var currentArt: ArtDataModel
     @State var artworkImage: Image?
     
     var body: some View {
@@ -24,8 +24,8 @@ struct SingleArtView: View {
             if let artworkImage = artworkImage {
                 artworkImage
                     .resizable()
-                    .scaledToFit()
-                    .frame(width: 400)
+                    .scaledToFill()
+                    .frame(width: 60)
             }
 
             VStack{
@@ -49,7 +49,7 @@ struct SingleArtView: View {
         }
         .task {
             if let imageId = currentArt.image_id {
-                artworkImage = await NetworkService.fetchImage(resultFor: imageId)
+                artworkImage = await NetworkService.fetchImage(ArtFor: imageId)
             }
         }
 

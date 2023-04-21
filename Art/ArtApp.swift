@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct ArtApp: App {
+    @State var currentArt: ArtDataModel?
     var body: some Scene {
         WindowGroup {
-            RandomView()
+            RandomView(currentArt: $currentArt)
         }
     }
 }

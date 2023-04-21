@@ -8,47 +8,49 @@
 import SwiftUI
 
 struct RandomView: View {
-    @State var currentArt: [ArtDataModel] = []
+    @Binding var currentArt: ArtDataModel?
+    @State var artworkImage: Image?
+    
     var body: some View {
         NavigationView {
             VStack{
                 Spacer()
-                if currentArt.count > 0 {
-                    
-                    List(currentArt) { art in
-                        VStack {
-                            SingleArtView(currentArt: art)
-                        }
-                        
-                    }
+                if let currentArt = currentArt {
+                    SingleArtView(currentArt: currentArt)
+                } else {
+                    ProgressView()
                 }
- 
-                else {
-                    Text("No")
-                }
-                Spacer()
                 
-//                Button(action: {
-//                    Task {
-//
-//                        withAnimation {
-//                            currentArt = nil
-//                        }
-//                        currentArt = await NetworkService.fetch()
-//                    }
-//                }, label: {
-//                    Text("Fetch another one")
-//                })
-//                .buttonStyle(.borderedProminent)
+                Spacer()
             }
-            .task {
-                currentArt = await NetworkService.fetch()
-            }
-            .navigationTitle("Random Art")
+
+            
+           
+            
+            Button(action: {
+                Task {
+                    withAnimation {
+                        currentArt = nil
+                    }
+                    currentArt = await NetworkService.fetch()
+                }
+            }, label: {
+                Text("Fetch another one")
+            })
+            .buttonStyle(.borderedProminent)
+            .tint(.green)
+            
+            
         }
-        
+        .task {
+            currentArt = await NetworkService.fetch()
+            
+        }
+        .navigationTitle("Random Art")
     }
+    
 }
+
 
 struct RandomView_Previews: PreviewProvider {
     static var previews: some View {

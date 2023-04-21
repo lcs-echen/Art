@@ -20,13 +20,13 @@ struct NetworkService {
     // in our app. Since this function might take a while to complete
     // this ensures that other parts of our app (like the user interface)
     // won't "freeze up" while this function does it's job.
-    static func fetch() async -> [ArtDataModel] {
+    static func fetch() async -> ArtDataModel? {
         
         // 1. Attempt to create a URL from the address provided
         let endpoint = "https://api.artic.edu/api/v1/artworks"
         guard let url = URL(string: endpoint) else {
             print("Invalid address for JSON endpoint.")
-            return []
+            return nil
         }
         
         // 2. Fetch the raw data from the URL
@@ -48,10 +48,15 @@ struct NetworkService {
             let decoder = JSONDecoder()
             
             // Use the decoder object to convert the raw data into an instance of our Swift data type
-            let decodedData = try decoder.decode(Result.self, from: data)
+            let decodedData = try decoder.decode(Art.self, from: data)
 
             // If we got here, decoding succeeded, return the instance of our data type
-            return decodedData.data
+
+            if decodedData.data.count > 0 {
+                return decodedData.data.first!
+            } else {
+                return nil
+            }
             
             
         } catch {
@@ -62,13 +67,13 @@ struct NetworkService {
             
             // Show the detailed error to help with debugging
             print(error.localizedDescription)
-            return []
+            return nil
             
         }
         
     }
     
-    static func fetchImage(resultFor image_id: String) async -> Image? {
+    static func fetchImage(ArtFor image_id: String) async -> Image? {
         
         // 1. Attempt to create a URL from the address provided
         let endpoint = "https://www.artic.edu/iiif/2/\(image_id)/full/843,/0/default.jpg"
