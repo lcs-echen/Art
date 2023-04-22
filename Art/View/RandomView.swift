@@ -21,6 +21,7 @@ struct RandomView: View {
                             Text(currentArt.title)
                                 .font(.title)
                                 .fontWeight(.semibold)
+                                .multilineTextAlignment(.center)
                             Text(currentArt.date_display)
                         }
                         .padding()
