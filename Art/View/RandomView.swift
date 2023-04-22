@@ -17,10 +17,10 @@ struct RandomView: View {
                 Spacer()
                 if let currentArt = currentArt {
                     VStack{
-                        HStack {
+                        VStack(alignment: .center) {
                             Text(currentArt.title)
                                 .font(.title)
-                            Spacer()
+                                .fontWeight(.semibold)
                             Text(currentArt.date_display)
                         }
                         .padding()
@@ -39,18 +39,22 @@ struct RandomView: View {
                                 Spacer()
                             }
                         }
-                        .padding()
+                        .padding(20)
                         HStack{
                             VStack (alignment: .leading){
                                 Text("Artist Information:")
+                                    .font(.title3)
+                                    .fontWeight(.semibold)
                                 Text(currentArt.artist_display)
                                     .padding(.bottom)
                                 Text("Place of Origin: ")
+                                    .font(.title3)
+                                    .fontWeight(.semibold)
                                 Text(currentArt.place_of_origin)
                             }
                             Spacer()
                         }
-                        .padding()
+                        .padding([.leading, .bottom, .trailing])
                         
                         .task {
                             if let imageId = currentArt.image_id {
@@ -68,6 +72,7 @@ struct RandomView: View {
                     Task {
                         withAnimation {
                             currentArt = nil
+                            artworkImage = nil
                         }
                         currentArt = await NetworkService.fetch()
                         if let imageId = currentArt?.image_id {
