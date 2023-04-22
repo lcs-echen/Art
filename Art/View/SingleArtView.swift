@@ -17,17 +17,17 @@ struct SingleArtView: View {
                 Text(currentArt.title)
                     .font(.title)
                 Spacer()
-               Text(currentArt.date_display)
+                Text(currentArt.date_display)
             }
             .padding()
-
+            
             if let artworkImage = artworkImage {
                 artworkImage
                     .resizable()
                     .scaledToFill()
                     .frame(width: 60)
             }
-
+            
             VStack{
                 HStack{
                     Text(currentArt.dimensions)
@@ -47,20 +47,21 @@ struct SingleArtView: View {
                 Spacer()
             }
             .padding()
-
-           
-        }
-        .task {
-            if let imageId = currentArt.image_id {
-                artworkImage = await NetworkService.fetchImage(ArtFor: imageId)
+            
+            .task {
+                if let imageId = currentArt.image_id {
+                    artworkImage = await NetworkService.fetchImage(ArtFor: imageId)
+                }
             }
         }
-
-
-
-
+        
     }
+    
+    
+    
+    
 }
+
 
 struct SingleArtView_Previews: PreviewProvider {
     static var previews: some View {

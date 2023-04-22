@@ -16,7 +16,49 @@ struct RandomView: View {
             VStack{
                 Spacer()
                 if let currentArt = currentArt {
-                    SingleArtView(currentArt: currentArt)
+                    VStack{
+                        HStack {
+                            Text(currentArt.title)
+                                .font(.title)
+                            Spacer()
+                            Text(currentArt.date_display)
+                        }
+                        .padding()
+                        
+                        if let artworkImage = artworkImage {
+                            artworkImage
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 60)
+                        }
+                        
+                        VStack{
+                            HStack{
+                                Text(currentArt.dimensions)
+                                    .font(.caption)
+                                Spacer()
+                            }
+                        }
+                        .padding()
+                        HStack{
+                            VStack (alignment: .leading){
+                                Text("Artist Information:")
+                                Text(currentArt.artist_display)
+                                    .padding(.bottom)
+                                Text("Place of Origin: ")
+                                Text(currentArt.place_of_origin)
+                            }
+                            Spacer()
+                        }
+                        .padding()
+                        
+                        .task {
+                            if let imageId = currentArt.image_id {
+                                artworkImage = await NetworkService.fetchImage(ArtFor: imageId)
+                            }
+                        }
+                        
+                    }
                 } else {
                     ProgressView()
                 }
@@ -28,6 +70,9 @@ struct RandomView: View {
                             currentArt = nil
                         }
                         currentArt = await NetworkService.fetch()
+                        if let imageId = currentArt?.image_id {
+                            artworkImage = await NetworkService.fetchImage(ArtFor: imageId)
+                        }
                     }
                 }, label: {
                     Text("Fetch another one")
